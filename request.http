@@ -1,0 +1,10 @@
+POST http://localhost:3000/api/links/create
+Content-Type: application/json
+
+{
+  "longUrl": "https://www.googlehey.com"
+}
+###
+GET http://localhost:3000/api/links/all
+###
+GET http://localhost:3000/api/links/bx8gxc
