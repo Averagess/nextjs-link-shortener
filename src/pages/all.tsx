@@ -26,7 +26,7 @@ const All = ({ allLinks }: { allLinks: string }) => {
     >
       <Link
         className="text-cyan-500 text-2xl hover:underline"
-        href={link.shortUrl}
+        href={`/links/${link.shortUrlID}`}
       >
         {link.shortUrl}
       </Link>
