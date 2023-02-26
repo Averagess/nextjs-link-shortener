@@ -1,7 +1,9 @@
+import { FormEvent, useState } from "react";
+
 import CopyInput from "@/components/CopyInput";
 import Layout from "@/components/Layout";
 import LinkInput from "@/components/LinkInput";
-import { FormEvent, useState } from "react";
+import Head from "next/head";
 
 const regex =
   /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
@@ -49,10 +51,13 @@ export default function Home() {
   };
 
   return (
-    // <div className="grid h-full w-full bg-gray-800 place-items-center">
     <Layout className="grid place-items-center">
+      <Head>
+        <title>Link Shortener</title>
+        <meta name="description" content="Shorten your links" />
+      </Head>
       <div className="container grid bg-neutral-800 rounded-xl p-20 place-items-center">
-        <h1 className="text-sky-600 font-mono text-[64px]">Url Shortener</h1>
+        <h1 className={`text-sky-600 font-sans font-bold text-[64px]`}>Url Shortener</h1>
         <h3 className="pb-5 font-sans text-white text-xl">
           Enter your link to get it shortened
         </h3>

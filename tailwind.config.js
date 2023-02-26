@@ -1,3 +1,5 @@
+const { fontFamily } = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -7,6 +9,9 @@ module.exports = {
     extend: {
       animation: {
         "bounce-twice": "bounce 1s infinite 2s"
+      },
+      fontFamily: {
+        sans : ["var(--font-inter)", ...fontFamily.sans]
       }
     },
   },

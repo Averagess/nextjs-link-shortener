@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import connectDB from "@/lib/db/connectDB";
 import link from "@/lib/models/link";
 import { Link as LinkInterface } from "@/types";
+import Head from "next/head";
 import Link from "next/link";
 
 export const getServerSideProps = async () => {
@@ -25,14 +26,14 @@ const All = ({ allLinks }: { allLinks: string }) => {
       className="bg-white rounded-3xl p-10 m-5 border-gray-400 border-2"
     >
       <Link
-        className="text-cyan-500 text-2xl hover:underline"
+        className="text-cyan-500 text-sm hover:underline md:text-2xl"
         href={`/links/${link.shortUrlID}`}
       >
         {link.shortUrl}
       </Link>
-      <p className="text-xl text-zinc-600">target: {link.longUrl}</p>
+      <p className="text-xs text-zinc-600 md:text-xl">origin: {link.longUrl}</p>
       <table>
-        <tbody>
+        <tbody className="text-xs md:text-base">
           <tr>
             <td>Created:</td>
             <td className="pl-2">
@@ -52,15 +53,18 @@ const All = ({ allLinks }: { allLinks: string }) => {
 
   return (
     <Layout className="grid place-items-center">
+      <Head>
+        <title>Link Shortener | All Links</title>
+        <meta name="description" content="A list of all links" />
+      </Head>
       <div className="font-sans p-2 min-h-[75vh] w-5/6 bg-neutral-800 rounded-3xl">
-        <h1 className="text-6xl ml-6 text-white font-semibold underline">
+        <h1 className="text-3xl md:text-6xl ml-6 text-white font-semibold">
           All links
         </h1>
-        <p className="text-xl ml-6 text-zinc-400">Here are all the links</p>
-        <p className="text-xl ml-6 text-zinc-400">
+        <p className="text-lg md:text-xl ml-6 text-zinc-400">
           Click on the short link to go to the long link
         </p>
-        <div className="grid max-h-[60vh] overflow-auto grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+        <div className="grid max-h-[60vh] overflow-auto grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
           {linkCards}
         </div>
       </div>
